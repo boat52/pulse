@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/nateh/pulse/app/params"
 	"os"
 
 	clienthelpers "cosmossdk.io/client/v2/helpers"
@@ -12,6 +13,7 @@ import (
 )
 
 func main() {
+    params.SetAddressPrefixes()
 	rootCmd := cmd.NewRootCmd()
 	if err := svrcmd.Execute(rootCmd, clienthelpers.EnvPrefix, app.DefaultNodeHome); err != nil {
 		fmt.Fprintln(rootCmd.OutOrStderr(), err)
